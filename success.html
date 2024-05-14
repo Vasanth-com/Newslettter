@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="conformation-container">
+        <img src="images/images/icon-success.svg" alt="success-icon">
+        <h1>Thanks for subcribing!</h1>
+        <p>A conformation email has been sent to <strong><span id="display-email"></span></strong> Please open it and click the button for confirm your subcription </p>
+        <button class="dismiss">Dismiss message</button>
+    </div>
+    <script>
+      document.addEventListener('DOMContentLoaded',() =>{
+        const queryString = window.location.search;
+        const urlParms = new URLSearchParams(queryString);
+        const email = urlParms.get('email');
+        const dismiss = document.querySelector('.dismiss');
+        if(email){
+            document.getElementById('display-email').textContent=email;
+        }
+        dismiss.addEventListener('click',() =>{
+            window.location.href = './index.html';
+        })
+})
+
+    </script>
+</body>
+</html>
